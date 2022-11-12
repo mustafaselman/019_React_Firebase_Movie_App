@@ -1,0 +1,44 @@
+#container{
+position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 0%;
+  transition: .5s ease;
+  background: rgba(128, 128, 128, 0.7);
+}
+
+#mainContainer:hover #container {
+    height: 100%;
+    
+}
+
+#text {
+    color: white;
+    opacity: 1 !important;
+    font-size: 12px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: inherit;
+}
+
+#button {
+    color: white;
+    opacity: 1 !important;
+    font-size: 15px;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 50%;
+}

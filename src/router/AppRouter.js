@@ -4,8 +4,9 @@ import Login from '../pages/Login'
 import Main from '../pages/Main'
 import MovieDetail from '../pages/MovieDetail'
 import Register from '../pages/Register'
+import PrivateRouter from './PrivateRouter'
 
-function Router()
+function AppRouter()
 {
     return (
         <BrowserRouter>
@@ -13,10 +14,10 @@ function Router()
                 <Route index element={<Main/>}/>
                 <Route path='/login' element={<Login/>}/>
                <Route path='/register' element={<Register/>}/>
-               {/* <Route path='/moviedetail' element={}>
-                <Route path="" elent={<MovieDetail/>}/>
+               <Route path='/moviedetail' element={<PrivateRouter/>}>
+                <Route path="" element={<MovieDetail/>}/>
                 </Route>
-              */}
+
             </Routes>
 
 
@@ -26,4 +27,4 @@ function Router()
     )
 }
 
-export default Router
+export default AppRouter
