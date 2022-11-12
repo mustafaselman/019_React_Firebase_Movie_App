@@ -18,7 +18,6 @@ function Login() {
     try{
        const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
         toast.success('Login Successfully', {position: toast.POSITION.TOP_RIGHT})
-       console.log(user)
        navigate("/");
     }
     catch(error){
@@ -35,6 +34,7 @@ function Login() {
   try{
     await signInWithPopup(auth, new GoogleAuthProvider())
     toast.success('Login Successfully', {position: toast.POSITION.TOP_RIGHT})
+    navigate("/");
   }
   catch(error){
     console.log(error.message)
@@ -51,7 +51,7 @@ function Login() {
     } 
     catch(error) {
       console.log(error.message)
-      toast.error("Reset Message Problems...", {
+      toast.error("Please enter email adress...", {
         position: toast.POSITION.TOP_RIGHT
       });
     }
