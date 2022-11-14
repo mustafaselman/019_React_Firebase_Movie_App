@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import { toast } from 'react-toastify';
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
@@ -22,6 +22,7 @@ function Navbar({loginSituation})
     localStorage.removeItem("searchedAdress");
      
   }
+ 
 
   return (
     <div>
@@ -31,7 +32,7 @@ function Navbar({loginSituation})
         <div>
           {user ? (
             <div>
-              <label className='link-warning p-3'>{user?.displayName ? "Welcome " + user.displayName : user.email}</label>
+              <label className='link-warning p-3'>{user?.displayName ? ("Welcome  " + user.displayName) : user.email}</label>
               
               <button className="btn btn-outline-light m-1" onClick={logout}>Sign Out</button>
             </div>

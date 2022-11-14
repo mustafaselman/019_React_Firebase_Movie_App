@@ -16,19 +16,21 @@ function Register() {
   const register = async () => {
     try{
        const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
-       updateProfile(auth.currentUser, {
+       const update = await updateProfile(auth.currentUser, {
         displayName: registerFirstName + " " + registerLastName
+        
        })
        console.log(user)
        toast.success("Register successfully...", {
         position: toast.POSITION.TOP_CENTER
       });
-       navigate("/")
+        navigate("/")
+       
        
     }
     catch(error){
       console.log(error.massage);
-      toast.success("Fill all blanks for register..", {
+      toast.success("error..please try again.. are you fill all blank ? are you register same email account ?", {
         position: toast.POSITION.TOP_CENTER
       });
     }
@@ -48,7 +50,7 @@ function Register() {
             <h3 className='my-3 form-label'>E-mail</h3>
             <input className="form-control w-75" onChange={(event)=>{setRegisterEmail(event.target.value)}} placeholder="Enter Your E-mail"/>
             <h3 className='my-3 form-label'>Password</h3>
-            <input className="form-control w-75" onChange={(event)=>{setRegisterPassword(event.target.value)}}placeholder="Enter Your Password"/>
+            <input type="password" className="form-control w-75" onChange={(event)=>{setRegisterPassword(event.target.value)}}placeholder="Enter Your Password"/>
             <button className="my-3 btn btn-warning" onClick={register}>Register</button> 
 
           </div>

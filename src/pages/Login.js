@@ -18,6 +18,7 @@ function Login() {
     try{
        const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword)
         toast.success('Login Successfully', {position: toast.POSITION.TOP_RIGHT})
+        console.log(user)
        navigate("/");
     }
     catch(error){
@@ -72,7 +73,7 @@ function Login() {
             <h3 className='my-3 form-label'>E-mail</h3>
             <input className="form-control w-75" onChange={(event)=>{setLoginEmail(event.target.value)}} placeholder="Enter Your E-mail"/>
             <h3 className='my-3 form-label'>Password</h3>
-            <input className="form-control w-75" onChange={(event)=>{setLoginPassword(event.target.value)}} placeholder="Enter Your Password"/>
+            <input type="password" className="form-control w-75" onChange={(event)=>{setLoginPassword(event.target.value)}} placeholder="Enter Your Password"/>
             <br/>
             <button className="my-3 btn btn-primary w-50" onClick={sendNewPassword} >Forgot Your Password ?</button>
             <br/>
