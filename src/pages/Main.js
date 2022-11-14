@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import MovieCard from '../components/MovieCard';
 import Navbar from '../components/Navbar';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/AuthContext';
 
 const apikey = process.env.REACT_APP_APIKEYMOVIEDB
 const URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${apikey}`
@@ -12,6 +14,8 @@ function Main() {
     const [formSearch,setFormSearch] = useState("")
     const[filmArray,setFilmArray] = useState([])
     const[error,setError]= useState("")
+    const navigate = useNavigate();
+    const user = useContext(UserContext);
     
     const getFilm = async (URL) => {
         try{
@@ -23,22 +27,31 @@ function Main() {
     }
    
     useEffect(()=>{
-    getFilm(URL);
+      if(localStorage.getItem("searchedAdress"))
+      getFilm(localStorage.getItem("searchedAdress"))
+      else
+      getFilm(URL);
    
     },[])
 
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      if (formSearch) {
+
+      if(user){
+        if (formSearch) {
         getFilm(searchURL + formSearch)
-        
+        localStorage.setItem("searchedAdress", searchURL + formSearch)
       }else{
         toast.warn("Invalid search query. please try again !..", {
           position: toast.POSITION.TOP_RIGHT
         });
-  
+      }}
+      else{
+        toast.warn("Firstly you must login", {position: toast.POSITION.TOP_RIGHT})
+        navigate("/login")
       }
+      
     }
   return (
     <div>
@@ -46,9 +59,9 @@ function Main() {
      <div className='my-3'>
       <br/>
       <div className='container position-relative '>
-      <form onSubmit={handleSubmit} className="d-flex w-50 position-absolute top-40 start-50 translate-middle" role="search">
-      <input value={formSearch} onChange={(e)=> setFormSearch(e.target.value)} className="form-control me-2" type="search" placeholder="Whats your favoruite film?" aria-label="Search"/>
-      <button className="btn btn-outline-primary" type="submit">Search</button>
+      <form onSubmit={handleSubmit} className=" mt-1 d-md-flex w-75 position-absolute top-40 start-50 translate-middle" role="search">
+      <input classname="flex-fill p-2" value={formSearch} onChange={(e)=> setFormSearch(e.target.value)} className="form-control me-2" type="search" placeholder="Whats your favoruite film?" aria-label="Search"/>
+      <button className=" btn btn-outline-primary mt-1" type="submit">Search</button>
       </form>
       </div>
 

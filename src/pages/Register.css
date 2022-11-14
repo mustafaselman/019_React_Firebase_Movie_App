@@ -10,3 +10,21 @@
     text-align-last: center;
     font-family: fantasy;
 }
+
+@media screen and (max-width: 600px) {
+    #regimage {
+      width:0% ;
+    }
+    #regdata {
+        width: 100%;
+    }
+    #youtubePlayer {
+        width:fit-content !important
+
+    }
+  }
+
+#youtubePlayer {
+    width:600px;
+
+}

@@ -30,6 +30,8 @@ function MovieDetail() {
     }
     
 }
+
+
 useEffect(()=>{
   getFilm(videoURL);
  
@@ -40,11 +42,11 @@ useEffect(()=>{
       <Navbar/>
       <h1 className='m-3'>{film.original_title}</h1>
       {
-        video?.map(trailer => <YouTube key={trailer.key} videoId={trailer.key} />)
+        video?.map(trailer => <YouTube id="youtubePlayer" key={trailer.key} videoId={trailer.key} />)
       }
       
 <div className="card mb-3 container"  >
-  <div className="row g-0">
+  <div className="row">
     <div className="col-md-4">
       <img src={`https://image.tmdb.org/t/p/w1280${film.poster_path}`} className="img-fluid rounded-start" alt="..."/>
     </div>

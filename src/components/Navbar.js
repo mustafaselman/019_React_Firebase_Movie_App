@@ -32,7 +32,7 @@ function Navbar({loginSituation})
         <div>
           {user ? (
             <div>
-              <label className='link-warning p-3'>Welcome {user?.displayName ? user.displayName : user.email}</label>
+              <label className='link-warning p-3'>{user?.displayName ? "Welcome " + user.displayName : user.email}</label>
               
               <button className="btn btn-outline-light m-1" onClick={logout}>Sign Out</button>
             </div>
