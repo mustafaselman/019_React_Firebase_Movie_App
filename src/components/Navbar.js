@@ -1,18 +1,16 @@
 import { signOut } from 'firebase/auth';
-import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react'
+
 import { toast } from 'react-toastify';
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import { auth } from '../auth/firebase';
-import AuthContext from '../context/AuthContext';
+
 import { UserContext } from "../context/AuthContext"
 
 function Navbar({loginSituation})
 {
   const user = useContext(UserContext)
 
-  const[alertStatus,setAlertStatus]=useState(false)
-  const[alertMessage,setAlertMessage]=useState("")
 
 
   const logout = async () =>
@@ -21,6 +19,7 @@ function Navbar({loginSituation})
     toast.success("Signout successful...", {
       position: toast.POSITION.TOP_RIGHT
     });
+    localStorage.removeItem("searchedAdress");
      
   }
 
@@ -44,12 +43,7 @@ function Navbar({loginSituation})
 
           }
 
-
-
         </div>
-        
-
-
 
       </nav>
 

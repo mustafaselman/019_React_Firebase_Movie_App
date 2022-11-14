@@ -18,15 +18,11 @@ function MovieDetail() {
       const getfilm = await axios(videoURL)
       const trailerFunc = (result) => result.name.match("Official Trailer")
       setVideo(getfilm.data.results.filter(trailerFunc));
-     
-
-    
-     
-    // setFilm(film.data)
+ 
     } catch (error) {
      
       console.log(error.message)
-      // setError(error.message)
+  
     }
     
 }

@@ -60,7 +60,7 @@ function Main() {
       <br/>
       <div className='container position-relative '>
       <form onSubmit={handleSubmit} className=" mt-1 d-md-flex w-75 position-absolute top-40 start-50 translate-middle" role="search">
-      <input classname="flex-fill p-2" value={formSearch} onChange={(e)=> setFormSearch(e.target.value)} className="form-control me-2" type="search" placeholder="Whats your favoruite film?" aria-label="Search"/>
+      <input className="flex-fill p-2" value={formSearch} onChange={(e)=> setFormSearch(e.target.value)} className="form-control me-2" type="search" placeholder="Whats your favoruite film?" aria-label="Search"/>
       <button className=" btn btn-outline-primary mt-1" type="submit">Search</button>
       </form>
       </div>

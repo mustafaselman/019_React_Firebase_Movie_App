@@ -1,23 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import "./MovieCard.css"
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/AuthContext';
-import PrivateRouter from '../router/PrivateRouter';
 import { toast } from 'react-toastify';
 
 function MovieCard({filmArray}) {
   
   const navigate = useNavigate();
   const user = useContext(UserContext);
-    
-  // const handleClick = ({state,film}) => {
-  //   if(!user)
-  //     toast.warn("Firstly you must login", {position: toast.POSITION.TOP_RIGHT})
-    
-  //   navigate("/moviedetail", ({film}) => state: {film})
-  // }
-
+  
  return(
     <div>
         <br/>

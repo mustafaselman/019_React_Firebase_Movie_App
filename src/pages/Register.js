@@ -11,7 +11,6 @@ function Register() {
   const [registerPassword,setRegisterPassword]=useState("");
   const [registerFirstName,setRegisterFirstName]=useState("");
   const [registerLastName,setRegisterLastName]=useState("");
-  const [registerName,setRegisterName]=useState("");
 
   const navigate = useNavigate();
   const register = async () => {
